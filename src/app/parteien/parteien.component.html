@@ -1,0 +1,28 @@
+<input 
+    type = "text" 
+    name="newPartei" 
+    class="form-control"
+    (keypress)="showInputName($event)"
+    value={{newParteiName}}
+>
+You wrote <b>{{newParteiName}}</b> as new partei name!
+
+
+<!-- another way to apply listener is through ngModel, Angular makes everything instead of us -->
+<input 
+    type = "text" 
+    name="newPartei" 
+    class="form-control"
+    [(ngModel)]="newParteiNameTWB"
+>
+You wrote <b>{{newParteiNameTWB}}</b> as new partei name!
+<br>
+<br>
+<h4>Name:</h4><app-partei></app-partei>
+<hr>
+<h4>Name:</h4><app-partei></app-partei>
+<hr>
+<h4>Name:</h4><app-errors></app-errors>
+<hr>
+<h4>Name:</h4><app-success></app-success>
+<hr>

@@ -1,0 +1,12 @@
+<button 
+    class="btn btn-primary"
+    [disabled]="waitSec"
+    (click)="startDownload()"
+>
+Download List
+</button>
+<p>Please wait {{waitSec}}</p>
+<p>Download status: <span>{{!waitSec}} {{isDownloading}}</span></p>
+
+
+<!-- <p>Download status: <span [innerText]="!waitSec"></span></p> -->
