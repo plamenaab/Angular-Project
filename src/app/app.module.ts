@@ -13,6 +13,7 @@ import { ErrorsComponent } from './errors/errors.component';
 import { SuccessComponent } from './success/success.component';
 import { DownloaderComponent } from './downloader/downloader.component';
 import { UserNameComponent } from './user-name/user-name.component';
+import { ShowHintComponent } from './show-hint/show-hint.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { UserNameComponent } from './user-name/user-name.component';
     ErrorsComponent,
     SuccessComponent,
     DownloaderComponent,
-    UserNameComponent
+    UserNameComponent,
+    ShowHintComponent
   ],
   imports: [
     BrowserModule,

@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class UserNameComponent {
   userInfo="";
   userName: string="";
+  showUserInfo = false;
   getUserInfo(){
     this.userInfo = `${this.userName} information:Fullname: / Status: admin`;
   }
