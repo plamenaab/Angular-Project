@@ -1,0 +1,19 @@
+<input 
+    type="text" 
+    name="username" 
+    class="form-control" 
+    [(ngModel)]="username" 
+    [ngStyle]="{backgroundColor: (showUserInfo)? 'lightgreen': 'white'}">
+<button 
+    [disabled]="!username" 
+    class="btn btn-primary" 
+    (click)="getUserInfo()"
+    [ngClass]="{
+        'btn-primary':!showUserInfo,
+        'btn-success':showUserInfo
+    }"
+>Get user info</button>
+<div *ngIf="showUserInfo else showHint">{{userinfo}}</div>
+<ng-template #showHint>
+    <div>Enter username and press button</div>
+</ng-template>

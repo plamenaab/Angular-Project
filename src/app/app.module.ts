@@ -12,8 +12,9 @@ import { ParteienComponent } from './parteien/parteien.component';
 import { ErrorsComponent } from './errors/errors.component';
 import { SuccessComponent } from './success/success.component';
 import { DownloaderComponent } from './downloader/downloader.component';
-import { UserNameComponent } from './user-name/user-name.component';
+import { UserinfoComponent } from './userinfo/userinfo.component';
 import { ShowHintComponent } from './show-hint/show-hint.component';
+import { AddParteiComponent } from './parteien/add-partei/add-partei.component';
 
 
 @NgModule({
@@ -24,8 +25,9 @@ import { ShowHintComponent } from './show-hint/show-hint.component';
     ErrorsComponent,
     SuccessComponent,
     DownloaderComponent,
-    UserNameComponent,
-    ShowHintComponent
+    UserinfoComponent,
+    ShowHintComponent,
+    AddParteiComponent
   ],
   imports: [
     BrowserModule,

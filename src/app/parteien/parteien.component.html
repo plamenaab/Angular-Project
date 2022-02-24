@@ -1,28 +1,44 @@
-<input 
+<!-- <input 
     type = "text" 
     name="newPartei" 
     class="form-control"
     (keypress)="showInputName($event)"
     value={{newParteiName}}
 >
-You wrote <b>{{newParteiName}}</b> as new partei name!
+You wrote <b>{{newParteiName}}</b> as new partei name! -->
 
 
 <!-- another way to apply listener is through ngModel, Angular makes everything instead of us -->
-<input 
+<!-- <input 
     type = "text" 
     name="newPartei" 
     class="form-control"
     [(ngModel)]="newParteiNameTWB"
->
-You wrote <b>{{newParteiNameTWB}}</b> as new partei name!
+> -->
+<!-- You wrote <b>{{newParteiNameTWB}}</b> as new partei name!
 <br>
 <br>
 <h4>Name:</h4><app-partei></app-partei>
 <hr>
 <h4>Name:</h4><app-partei></app-partei>
-<hr>
-<h4>Name:</h4><app-errors></app-errors>
-<hr>
-<h4>Name:</h4><app-success></app-success>
-<hr>
+<hr> -->
+
+<app-add-partei 
+(parteiCreated)="onAddPartei($event)"
+></app-add-partei>
+<ul [style]="{'list-style-type':'none', padding:0}">
+<li 
+*ngFor="let partei of parteiList; let i = index" 
+[ngStyle]="{backgroundColor:(i%2) ? '#eee': 'white'}">
+    <!-- <button 
+        class="btn btn-danger"
+        (click)="removePartei(i)"
+    >X</button> -->
+    <app-partei 
+    [parteiEl]="partei"
+    (parteiDeleted)="onRemovePartei($event)"
+    [parteiId]="i"
+></app-partei>
+</li>
+</ul>
+<!-- make delete partei button -->
