@@ -26,6 +26,7 @@ You wrote <b>{{newParteiName}}</b> as new partei name! -->
 <app-add-partei 
 (parteiCreated)="onAddPartei($event)"
 ></app-add-partei>
+<h4>This is a test H4 element</h4>
 <ul [style]="{'list-style-type':'none', padding:0}">
 <li 
 *ngFor="let partei of parteiList; let i = index" 
@@ -36,9 +37,16 @@ You wrote <b>{{newParteiName}}</b> as new partei name! -->
     >X</button> -->
     <app-partei 
     [parteiEl]="partei"
-    (parteiDeleted)="onRemovePartei($event)"
     [parteiId]="i"
-></app-partei>
+    [testhtml]="testhtml"
+    
+    >
+<button
+         class="btn btn-danger"
+         (click)="removePartei(i)"
+         
+        >X</button>
+</app-partei>
 </li>
 </ul>
 <!-- make delete partei button -->

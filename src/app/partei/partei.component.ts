@@ -11,11 +11,12 @@ import { Component, Input, Output, EventEmitter, ViewEncapsulation } from "@angu
 export class ParteiComponent { 
   @Input('parteiEl') parteiElement!: { parteiType: string, name: string, members: number };
   @Input() parteiId!:number;
-  @Output() parteiDeleted = new EventEmitter<{id:number}>();
+  @Input() testhtml!:string;
+  // @Output() parteiDeleted = new EventEmitter<{id:number}>();
 
-    removePartei(parteiId:number){
-      this.parteiDeleted.emit({id: parteiId});
-    }
+  //   removePartei(parteiId:number){
+  //     this.parteiDeleted.emit({id: parteiId});
+  //   }
     getParteiFullName(){
       return `${this.parteiElement.parteiType} ${this.parteiElement.name}!`;
     }

@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
 
@@ -10,20 +10,24 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 
 export class AddParteiComponent implements OnInit {
 
-  newParteiType = "";
-  newParteiName = "";
-  newParteiMembers = 0;
+  // newParteiType = "";
+  // newParteiName = "";
+  // newParteiMembers = 0;
 
   @Output() parteiCreated = new EventEmitter<{parteiType: string, name: string, members: number}>();
-
-  onParteiAdd(){
+  @ViewChild('newParteiTypeInput') newParteiTypeInput!:ElementRef;
+  @ViewChild('newMembersInput') newMembersInput!:ElementRef;
+  onParteiAdd(newParteiNameInput: HTMLInputElement){
 
     this.parteiCreated.emit({
-      parteiType: this.newParteiType,
-      name: this.newParteiName,
-      members: this.newParteiMembers
+      parteiType: this.newParteiTypeInput.nativeElement.value,
+      name: newParteiNameInput.value,
+      members: this.newMembersInput.nativeElement.value
     });
-
+    newParteiNameInput.value="";
+    this.newMembersInput.nativeElement.value=0;
+    // this.newParteiType="";
+    // newParteiMembers=0;
   }
   constructor() { }
   ngOnInit(): void {

@@ -27,6 +27,7 @@ export class ParteienComponent {
     //     members: this.newParteiMembers
     //   })
     // }
+    testhtml = "<b>this is test html</b>"
     onAddPartei(parteiData: { parteiType: string, name: string, members: number }){
 
         this.parteiList.push({
@@ -36,9 +37,9 @@ export class ParteienComponent {
     })
 }
     
-onRemovePartei(parteiId:{id: number}){
-    this.parteiList.splice(parteiId.id, 1);
-}
+// onRemovePartei(parteiId:{id: number}){
+//     this.parteiList.splice(parteiId.id, 1);
+// }
 removePartei(id: number){
     this.parteiList.splice(id, 1);
 }

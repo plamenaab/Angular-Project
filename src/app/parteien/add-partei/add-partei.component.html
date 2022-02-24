@@ -8,7 +8,7 @@
         type="text"  
         class="form-control"
         name="newParteiType"
-        [(ngModel)] = "newParteiType"
+        #newParteiTypeInput
 
     >
     <label for="newParteiName">Name:</label>
@@ -26,18 +26,26 @@
         type="text"
         name="newParteiName"
         class="form-control"
+        #newParteiNameInput
     >
     <label for="newParteiMembers">Number of members:</label>
-    <input
+    <!-- <input
         type="number"
         class="form-control"
         name="newParteiMembers"
         [(ngModel)] = "newParteiMembers"
+    > -->
+
+    <input
+        type="number"
+        name="newParteiMember"
+        class="form-control"
+        #newMembersInput
     >
     <br>
     <button
         class="btn btn-primary"
-        (click)="onParteiAdd()"
+        (click)="onParteiAdd(newMembersInput)"
     >Add new</button>
 
 </fieldset>
