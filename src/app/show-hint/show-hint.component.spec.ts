@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UserNameComponent } from './user-name.component';
+import { ShowHintComponent } from './show-hint.component';
 
-describe('UserNameComponent', () => {
-  let component: UserNameComponent;
-  let fixture: ComponentFixture<UserNameComponent>;
+describe('ShowHintComponent', () => {
+  let component: ShowHintComponent;
+  let fixture: ComponentFixture<ShowHintComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ UserNameComponent ]
+      declarations: [ ShowHintComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(UserNameComponent);
+    fixture = TestBed.createComponent(ShowHintComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,5 +1,4 @@
-import { Component } from "@angular/core";
-
+import { Component, Input, Output, EventEmitter } from "@angular/core";
 
 
 @Component({
@@ -10,12 +9,15 @@ import { Component } from "@angular/core";
 })
 
 export class ParteiComponent { 
-    parteiType = "Partei";
-    parteiName = "Christian Democratic Union";
-    parteiMembers = 10000;
-    myBool = true;
+  @Input('parteiEl') parteiElement!: { parteiType: string, name: string, members: number };
+  @Input() parteiId!:number;
+  @Output() parteiDeleted = new EventEmitter<{id:number}>();
+
+    removePartei(parteiId:number){
+      this.parteiDeleted.emit({id: parteiId});
+    }
     getParteiFullName(){
-        return `${this.parteiType} ${this.parteiName}`;
+      return `${this.parteiElement.parteiType} ${this.parteiElement.name}!`;
     }
 
 }

@@ -1,6 +1,10 @@
+<button
+         class="btn btn-danger"
+         (click)="removePartei(parteiId)"
+        >X</button>
 <h4>
     <!-- {{parteiType}} {{parteiName}} -->
-    {{getParteiFullName()}} / Members: {{parteiMembers}} 
-
-
+    {{getParteiFullName()}} / Members: {{parteiElement.members}} 
 </h4>
+<br>
+<!-- <div>Calculate 3+5={{ 3 + 5}}</div> -->

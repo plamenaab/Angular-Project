@@ -1,0 +1,14 @@
+<button class="btn btn-primary" (click)="showHint()">Hint</button>
+<div 
+    *ngFor="let hint of hintsShown; let in=index"
+    [ngStyle]="{backgroundColor: getBgColor(in)}"
+    [ngClass] = "{whiteText: (in>startHintsAvaiable/1.5-1)?true:false}"
+
+    >
+    {{hint}}
+</div>
+<hr><br>
+
+
+<!-- [ngStyle]="{backgroundColor: (in>2)?((in>5)?(in===9?'black':'red'):'orange'):'white'}" 
+     [ngClass]="{whiteText:(in>5)?true:false}" -->
