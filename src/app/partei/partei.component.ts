@@ -1,11 +1,11 @@
-import { Component, Input, Output, EventEmitter } from "@angular/core";
+import { Component, Input, Output, EventEmitter, ViewEncapsulation } from "@angular/core";
 
 
 @Component({
   selector: 'app-partei',
   templateUrl: './partei.component.html',
-
   styleUrls: ['./partei.component.css'],
+  encapsulation: ViewEncapsulation.Emulated,
 })
 
 export class ParteiComponent { 
