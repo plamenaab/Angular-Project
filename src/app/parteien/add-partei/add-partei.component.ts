@@ -29,7 +29,8 @@ export class AddParteiComponent implements OnInit {
     // this.newParteiType="";
     // newParteiMembers=0;
   }
-  constructor() { }
+  constructor() {
+   }
   ngOnInit(): void {
 
   }

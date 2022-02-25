@@ -1,13 +1,23 @@
-<!-- <button
-         class="btn btn-danger"
-         (click)="removePartei(parteiId)"
-        >X</button> -->
-
-<ng-content></ng-content>
-<!-- {{testhtml}} -->
-<h4>
-    <!-- {{parteiType}} {{parteiName}} -->
-    {{getParteiFullName()}} / Members: {{parteiElement.members}} 
-</h4>
-<br>
-<!-- <div>Calculate 3+5={{ 3 + 5}}</div> -->
+<!-- <button 
+class="btn btn-danger"
+(click)="removePartei(parteiId)"
+>X</button> -->
+<div class="row">
+    <div class="col-xs-12 col-md-8">
+        <ng-content></ng-content>
+        <!-- {{testhtml}} -->
+        <h4 #myH4Element>
+            <!-- {{ getParteiFullName() }} / Members: {{ parteiElement.members }} -->
+            {{parteiElement.parteiType}} {{ parteiElement.name }} / Members: {{ parteiElement.members }}
+        </h4>
+        <button 
+            class="btn float-end" 
+            [ngClass]="{'btn-primary':showList, 'btn-success':!showList}" 
+            (click)="showList=!showList"
+        >{{ (showList)? "Hide": "Show"}}</button>
+    </div>
+    <div class="col-xs-12 col-md-4" *ngIf="showList">
+        <app-candidate-list [candidates]="parteiElement.candidateList"></app-candidate-list>
+    </div>
+    <!-- <button class="btn btn-primary" (click)="changeParteiData()">Clickme</button> -->
+</div>

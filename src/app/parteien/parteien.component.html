@@ -38,15 +38,16 @@ You wrote <b>{{newParteiName}}</b> as new partei name! -->
     <app-partei 
     [parteiEl]="partei"
     [parteiId]="i"
-    [testhtml]="testhtml"
+    [parteiType]="partei.parteiType"
+    [testArray]="testArray"
     
     >
 <button
          class="btn btn-danger"
          (click)="removePartei(i)"
-         
         >X</button>
 </app-partei>
 </li>
 </ul>
 <!-- make delete partei button -->
+Test case: see members {{parteiList[0].members}} /see type {{parteiList[0].parteiType}} / TestArray {{testArray.toString()}}

@@ -1,0 +1,18 @@
+<h2 class="accordion-header" id="heading{{parteiId}}">
+    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+        attr.data-bs-target="#collapse{{parteiId}}" aria-expanded="false"
+        attr.aria-controls="collapse{{parteiId}}"><strong>
+            {{parteiElement.parteiType}}: {{parteiElement.name}}
+        </strong>
+    </button>
+</h2>
+<div id="collapse{{parteiId}}" class="accordion-collapse collapse" attr.aria-labelledby="heading{{parteiId}}"
+    data-bs-parent="#accordionExample">
+    <div class="accordion-body">
+       <ol>
+           <li *ngFor="let candidate of parteiElement.candidateList; let i = index">
+                {{candidate}}
+           </li>
+       </ol>
+    </div>
+</div>

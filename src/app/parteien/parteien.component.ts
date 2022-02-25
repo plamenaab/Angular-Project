@@ -17,9 +17,26 @@ export class ParteienComponent {
     //     this.newParteiName = (<HTMLInputElement>event.target).value;
     // }
     parteiList = [
-        { parteiType: "Partei", name: "Christlich Demokratische Union", members: 2000 },
-        { parteiType: "Partei", name: "Die Sozialpolitische Partei", members: 3000 },
-    ];
+        {
+          parteiType: "Partei", name: "Christlich Demokratische Union", members: 2000,
+          candidateList: [
+            'Candidate CDU 1',
+            'Candidate CDU 2',
+            'Candidate CDU 3',
+            'Candidate CDU 4',
+          ]
+        },
+        {
+          parteiType: "Partei", name: "Die Sozialpolitische Partei", members: 3000, candidateList: [
+            'Candidate DSP 1',
+            'Candidate DSP 2',
+            'Candidate DSP 3',
+            'Candidate DSP 4',
+          ]
+        },
+    
+      ]
+    testArray:number[] = [1,2,3];
     // addPartеi() {
     //   this.parteiList.push({
     //     parteiType: this.newParteiType,
@@ -28,14 +45,14 @@ export class ParteienComponent {
     //   })
     // }
     testhtml = "<b>this is test html</b>"
-    onAddPartei(parteiData: { parteiType: string, name: string, members: number }){
-
+    onAddPartei(partaiData: { parteiType: string, name: string, members: number }) {
         this.parteiList.push({
-        parteiType: parteiData.parteiType,
-        name: parteiData.name,
-        members: parteiData.members
-    })
-}
+          parteiType: partaiData.parteiType,
+          name: partaiData.name,
+          members: partaiData.members,
+          candidateList: []
+        })
+      }
     
 // onRemovePartei(parteiId:{id: number}){
 //     this.parteiList.splice(parteiId.id, 1);
@@ -47,5 +64,9 @@ removePartei(id: number){
 // showInputName(event: Event) {
 //     this.newParteiName = (<HTMLInputElement>event.target).value;
 // }
-constructor(){ }
+constructor() {
+    // setTimeout(()=>{
+    //   this.parteiList
+    // },3000)
+   }
 }
