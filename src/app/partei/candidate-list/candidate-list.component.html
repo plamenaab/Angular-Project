@@ -3,3 +3,17 @@
         {{ candidate}}
     </li>
 </ol>
+
+<div>
+    <input
+    type="text"
+    name="newCandidateList"
+    class="form-control"
+    #newCandidateListInput
+    >           
+<br>
+    <button
+    class="btn btn-primary"
+    (click)="onCandidateAdd(this.newCandidateListInput.value)"
+    >Add a new Partei</button>
+</div>
