@@ -6,6 +6,7 @@ import { Component, ElementRef, Input, ViewChild } from '@angular/core';
   styleUrls: ['./candidate-list.component.css']
 })
 export class CandidateListComponent  {
+  // @Output() candidateCreated = new EventEmitter<{candidate: string}>();
   @Input() candidates!:string[];
   @ViewChild('newCandidateListInput') newCandidateListInput!:ElementRef;
   constructor() { }
