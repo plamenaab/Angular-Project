@@ -14,7 +14,7 @@ export class AddParteiComponent implements OnInit {
   // newParteiName = "";
   // newParteiMembers = 0;
 
-  @Output() parteiCreated = new EventEmitter<{parteiType: string, name: string, members: number}>();
+  @Output() parteiCreated = new EventEmitter<{parteiType: string, name: string, members: number, candidateList: string[]}>();
   @ViewChild('newParteiTypeInput') newParteiTypeInput!:ElementRef;
   @ViewChild('newMembersInput') newMembersInput!:ElementRef;
   onParteiAdd(newParteiNameInput: HTMLInputElement){
@@ -22,7 +22,8 @@ export class AddParteiComponent implements OnInit {
     this.parteiCreated.emit({
       parteiType: this.newParteiTypeInput.nativeElement.value,
       name: newParteiNameInput.value,
-      members: this.newMembersInput.nativeElement.value
+      members: this.newMembersInput.nativeElement.value,
+      candidateList: []
     });
     newParteiNameInput.value="";
     this.newMembersInput.nativeElement.value=0;

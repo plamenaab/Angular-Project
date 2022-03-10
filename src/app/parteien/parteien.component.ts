@@ -45,7 +45,7 @@ export class ParteienComponent {
     //   })
     // }
     testhtml = "<b>this is test html</b>"
-    onAddPartei(partaiData: { parteiType: string, name: string, members: number }) {
+    onAddPartei(partaiData: { parteiType: string, name: string, members: number, candidateList: string[] }) {
         this.parteiList.push({
           parteiType: partaiData.parteiType,
           name: partaiData.name,
@@ -54,6 +54,10 @@ export class ParteienComponent {
         })
       }
     
+      onAddCandidate(candidateData:{parteiId: number, candidateName: string}){
+        this.parteiList[candidateData.parteiId].candidateList.push(candidateData.candidateName)
+      }
+      
 // onRemovePartei(parteiId:{id: number}){
 //     this.parteiList.splice(parteiId.id, 1);
 // }

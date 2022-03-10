@@ -7,13 +7,19 @@
 <div>
     <input
     type="text"
-    name="newCandidateList"
+    name="candidateName"
     class="form-control"
-    #newCandidateListInput
-    >           
+    #candidateName
+    >      
+    <input
+    type="hidden"
+    name="parteiId"
+    class="form-control"
+    value="{{parteiId}}"
+    >        
 <br>
     <button
     class="btn btn-primary"
-    (click)="onCandidateAdd(this.newCandidateListInput.value)"
+    (click)="onAddCandidate(candidateName)"
     >Add a new Partei</button>
 </div>

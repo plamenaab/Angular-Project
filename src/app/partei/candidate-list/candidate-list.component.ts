@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-candidate-list',
@@ -6,19 +6,21 @@ import { Component, ElementRef, Input, ViewChild } from '@angular/core';
   styleUrls: ['./candidate-list.component.css']
 })
 export class CandidateListComponent  {
-  // @Output() candidateCreated = new EventEmitter<{candidate: string}>();
+  @Output() candidateCreated = new EventEmitter<{candidateName: string}>();
   @Input() candidates!:string[];
-  @ViewChild('newCandidateListInput') newCandidateListInput!:ElementRef;
+  @Input() parteiId!:number;
   constructor() { }
 
-  // onCandidateAdd(newCandidateListInput: HTMLInputElement) {
-  //   candidate: this.newCandidateListInput.nativeElement.value;
-  //   newCandidateListInput.value="";
-	// }
+  onAddCandidate(newCandidateNameInput: HTMLInputElement) {
+    this.candidateCreated.emit({
+      candidateName: newCandidateNameInput.value,
+    });
+	}
 
-  onCandidateAdd(candidate: string) {
-    this.candidates.push(candidate)
-  }
+
+  // onAddCandidate(candidate: string) {
+  //   this.candidates.push(candidate)
+  // }
 
 }
 

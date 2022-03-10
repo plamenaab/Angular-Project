@@ -1,4 +1,4 @@
-import { Component, Input, ViewEncapsulation, OnInit, OnChanges, SimpleChanges, ViewChild, ElementRef } from "@angular/core";
+import { Component, Input, ViewEncapsulation, OnInit, OnChanges, SimpleChanges, ViewChild, ElementRef, Output, EventEmitter } from "@angular/core";
 
 
 @Component({
@@ -23,6 +23,7 @@ export class ParteiComponent {
   @Input() testhtml!:string;
   @Input() parteiType!:string;
   @Input() testArray!:number[];
+  @Output() onCandidateCreated = new EventEmitter<{parteiId: number, candidateName: string}>();
   @ViewChild('myH4Element') myH4Element!:ElementRef;
   showList=false;
   constructor(){
@@ -35,7 +36,14 @@ export class ParteiComponent {
   getParteiFullName(){
     return `${this.parteiElement.parteiType} ${this.parteiElement.name}!`;
   }
-
+candidateCreated(candidateData: {candidateName: string}){
+  console.log(candidateData.candidateName)
+//  emit to parent
+this.onCandidateCreated.emit({
+  parteiId: this.parteiId,
+  candidateName: candidateData.candidateName
+});
+}
   changeParteiType(){
     // this.parteiType = "NewParteiType";
     // this.parteiElement.members=1000;
