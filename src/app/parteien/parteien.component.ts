@@ -44,7 +44,7 @@ export class ParteienComponent {
     //     members: this.newParteiMembers
     //   })
     // }
-    testhtml = "<b>this is test html</b>"
+    // testhtml = "<b>this is test html</b>"
     onAddPartei(partaiData: { parteiType: string, name: string, members: number, candidateList: string[] }) {
         this.parteiList.push({
           parteiType: partaiData.parteiType,
