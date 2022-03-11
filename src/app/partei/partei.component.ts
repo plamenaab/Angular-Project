@@ -1,5 +1,5 @@
 import { Component, Input, ViewEncapsulation, OnInit, OnChanges, SimpleChanges, ViewChild, ElementRef, Output, EventEmitter, OnDestroy, ContentChild, AfterContentInit } from "@angular/core";
-
+import { LoggingService } from "../services/logging.service";
 
 @Component({
   selector: 'app-partei',
@@ -24,11 +24,11 @@ export class ParteiComponent
   @Input() testhtml!:string;
   @Input() parteiType!:string;
   @Input() testArray!:number[];
-  @Output() onCandidateCreated = new EventEmitter<{parteiId: number, candidateName: string}>();
+  @Output() onCanidateCreated = new EventEmitter<{parteiId:number, candidateName:string}>();
   @ViewChild('myH4Element') myH4Element!:ElementRef;
   @ContentChild('contentButton') contentButton!:ElementRef;
   showList=false;
-  constructor(){
+  constructor(private loggingService: LoggingService){
     // console.log("Constructor called");
     // setTimeout(
     //   () =>{
@@ -38,14 +38,17 @@ export class ParteiComponent
   getParteiFullName(){
     return `${this.parteiElement.parteiType} ${this.parteiElement.name}!`;
   }
-candidateCreated(candidateData: {candidateName: string}){
-  console.log(candidateData.candidateName)
-//  emit to parent
-this.onCandidateCreated.emit({
-  parteiId: this.parteiId,
-  candidateName: candidateData.candidateName
-});
-}
+  canidateCreated(candidateData: {candidateName:string}){
+
+    // console.log("New candidate", candidateData.candidateName, 
+    // " ID:", this.parteiId);
+    //emit to parent 
+    this.loggingService.logParteiDataChange('partei comp add candidate:' + candidateData.candidateName);
+     this.onCanidateCreated.emit({
+     parteiId: this.parteiId,
+     candidateName:candidateData.candidateName,
+     });
+  }
   changeParteiType(){
     // this.parteiType = "NewParteiType";
     // this.parteiElement.members=1000;

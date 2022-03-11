@@ -17,7 +17,7 @@ class="btn btn-danger"
         >{{ (showList)? "Hide": "Show"}}</button>
     </div>
     <div class="col-xs-12 col-md-4" *ngIf="showList">
-        <app-candidate-list [candidates]="parteiElement.candidateList" [parteiId]="parteiId" (candidateCreated)="candidateCreated($event)"></app-candidate-list>
+        <app-candidate-list [candidates]="parteiElement.candidateList" [parteiId]="parteiId" (canidateCreated)="canidateCreated($event)"></app-candidate-list>
     </div>
     <!-- <button class="btn btn-primary" (click)="changeParteiData()">Clickme</button> -->
 </div>

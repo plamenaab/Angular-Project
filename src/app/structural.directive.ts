@@ -7,6 +7,7 @@ export class StructuralDirective {
   @Input() set appStructural(obj:{countMembers: number,nameInput:string, typeInput:string}){
     if(obj.countMembers>10 && obj.nameInput !== "" && obj.typeInput!==""){
       // do something
+      this.containerRef.clear();
       this.containerRef.createEmbeddedView(this.templateRef);
     }else{
       // do something else

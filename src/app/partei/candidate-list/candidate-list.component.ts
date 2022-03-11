@@ -1,4 +1,5 @@
-import { Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, Output,OnInit, ViewChild } from '@angular/core';
+import { LoggingService } from 'src/app/services/logging.service';
 
 @Component({
   selector: 'app-candidate-list',
@@ -6,18 +7,20 @@ import { Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@
   styleUrls: ['./candidate-list.component.css']
 })
 export class CandidateListComponent  {
-  @Output() candidateCreated = new EventEmitter<{candidateName: string}>();
   @Input() candidates!:string[];
   @Input() parteiId!:number;
-  constructor() { }
+  @Output() canidateCreated = new EventEmitter<{candidateName:string}>();
+  constructor(private loggingService: LoggingService ) { }
 
   onAddCandidate(newCandidateNameInput: HTMLInputElement) {
-    this.candidateCreated.emit({
-      candidateName: newCandidateNameInput.value,
+    this.loggingService.logParteiDataChange("Adding candidate list comp:" + newCandidateNameInput.value);
+    this.canidateCreated.emit({
+      candidateName:newCandidateNameInput.value,
     });
 	}
 
-
+  ngOnInit(): void {
+  }
   // onAddCandidate(candidate: string) {
   //   this.candidates.push(candidate)
   // }

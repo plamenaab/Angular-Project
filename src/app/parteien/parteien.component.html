@@ -22,9 +22,7 @@ You wrote <b>{{newParteiName}}</b> as new partei name! -->
 <hr>
 <h4>Name:</h4><app-partei></app-partei>
 <hr> -->
-<app-add-partei 
-(parteiCreated)="onAddPartei($event)"
-></app-add-partei>
+<app-add-partei></app-add-partei>
 <h4>This is a test H4 element</h4>
 <div class="accordion" id="accordionExample">
     <div class="accordion-item" *ngFor="let partei of parteiList; let i = index">
@@ -44,8 +42,7 @@ You wrote <b>{{newParteiName}}</b> as new partei name! -->
     [parteiEl]="partei"
     [parteiId]="i"
     [parteiType]="partei.parteiType"
-    [testArray]="testArray"
-    (onCandidateCreated)="onAddCandidate($event)"
+    (onCanidateCreated)="onAddCandidate($event)"
     >
 <button
          class="btn btn-danger"
