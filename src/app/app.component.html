@@ -1,4 +1,4 @@
- <!-- <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
+<!-- <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">Top navbar</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -24,26 +24,39 @@
   </div>
 </nav>
 
-<h1>{{title}}</h1>
-<p>{{loremipsum}}</p>
+<h1>{{ title }}</h1>
+<p>{{ loremipsum }}</p>
 
-Enter your name: <input type = "text" [(ngModel)]="name"/><br/>
-You entered: {{name}} -->
+Enter your name:<input type="text" [(ngModel)]="name" /><br />
+You entered: {{ name }} -->
 
- <div class="container">
+<div class="container">
   <div class="row">
     <div class="col-xs-12">
-      <h1>Here will be our app</h1>
+      <div [ngSwitch]="testValue">
+        <div *ngSwitchDefault>Value is not from the list</div>
+
+        <div *ngSwitchCase="1">Value is 1</div>
+        <div *ngSwitchCase="5">Value is 5</div>
+        <div *ngSwitchCase="10">Value is 10</div>
+        <div *ngSwitchCase="20">Value is 20</div>
+      </div>
+      <!-- <h1 app-first-directive>Here will be our app</h1>
+      <h1 appSecondDirective>Second directive demo</h1>
+      <h1 [appSecondDir2]="myBgColor" defaultColor="#eee" >Second directive V2 demo</h1>
+      <hr> -->
+      <!-- <app-showhints></app-showhints>
       <hr>
-      <!-- <app-partei></app-partei> -->
-      <app-parteien></app-parteien>
-      <!-- <app-add-partei></app-add-partei> -->
-      <!-- <app-show-hint></app-show-hint>
+
+
       <app-userinfo></app-userinfo>
+      <hr>
       <app-downloader></app-downloader> -->
-       <!-- element -->
-      <!-- <div class="app-parteien">< --> <!-- sname -->
-      <!-- <div app-parteien></div>  attribute -->
+      <app-parteien></app-parteien> <!-- element -->
+      <!-- <div class="app-parteien"></div> -->
+      <!-- classname -->
+      <!-- <div app-parteien></div>   -->
+      <!-- attribute -->
     </div>
   </div>
 </div>

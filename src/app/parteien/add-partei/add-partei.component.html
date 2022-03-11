@@ -1,51 +1,53 @@
 <fieldset>
-
-    <legend>Add new Partei</legend>
+    <legend>Add new partei</legend>
     <label for="newParteiType">Type:</label>
-<!-- change -->
-    <input
-
-        type="text"  
+    <!-- <input 
+        type="text" 
+        name="newParteiType" 
+        [(ngModel)]="newParteiType" 
         class="form-control"
-        name="newParteiType"
         #newParteiTypeInput
-
+    > -->
+    <input 
+        type="text" 
+        name="newParteiType" 
+        class="form-control"
+        #newParteiTypeInput
     >
     <label for="newParteiName">Name:</label>
-
-    <!-- <input
-
-        type="text"
+    <!-- <input 
+        type="text" 
+        name="newParteiName" 
         class="form-control"
-        name="newParteiName"
-        [(ngModel)] = "newParteiName"
-
+        [(ngModel)]="newParteiName"
     > -->
-
-    <input
-        type="text"
-        name="newParteiName"
+    <input 
+        type="text" 
+        name="newParteiName" 
         class="form-control"
         #newParteiNameInput
     >
-    <label for="newParteiMembers">Number of members:</label>
-    <!-- <input
-        type="number"
+    <label for="newParteiMembers">Members:</label>
+    <input 
+        type="number" 
+        name="newParteiMembers" 
         class="form-control"
-        name="newParteiMembers"
-        [(ngModel)] = "newParteiMembers"
-    > -->
-
-    <input
-        type="number"
-        name="newParteiMember"
-        class="form-control"
-        #newMembersInput
+        [(ngModel)]="newParteiMembers"   
     >
-    <br>
     <button
-        class="btn btn-primary"
-        (click)="onParteiAdd(newMembersInput)"
+    class="btn btn-primary" 
+    (click)="onParteiAdd(newParteiNameInput)"
+    *ngIf="newParteiMembers"
     >Add new</button>
-
+    <ng-template [ngIf]="newParteiMembers">
+        <button
+        class="btn btn-primary" 
+        (click)="onParteiAdd(newParteiNameInput)"
+        >Add new</button>       
+    </ng-template>
+    <button
+    class="btn btn-primary" 
+    (click)="onParteiAdd(newParteiNameInput)"
+    *appStructural="{countMembers:newParteiMembers, nameInput:newParteiNameInput.value, typeInput:newParteiTypeInput.value}"
+    >Add new</button>
 </fieldset>
