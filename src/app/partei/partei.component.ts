@@ -1,4 +1,4 @@
-import { Component, Input, ViewEncapsulation, OnInit, OnChanges, SimpleChanges, ViewChild, ElementRef, Output, EventEmitter } from "@angular/core";
+import { Component, Input, ViewEncapsulation, OnInit, OnChanges, SimpleChanges, ViewChild, ElementRef, Output, EventEmitter, OnDestroy, ContentChild, AfterContentInit } from "@angular/core";
 
 
 @Component({
@@ -8,16 +8,17 @@ import { Component, Input, ViewEncapsulation, OnInit, OnChanges, SimpleChanges, 
   encapsulation: ViewEncapsulation.Emulated,
 })
 
-export class ParteiComponent {
-      // implements 
-    // OnInit, 
+export class ParteiComponent 
+      implements 
+    OnInit,
     // OnChanges, 
     // DoCheck, 
-    // AfterContentInit,
+    AfterContentInit
     // AfterContentChecked,
     // AfterViewInit,
     // AfterViewChecked,
     // OnDestroy
+  {
   @Input('parteiEl') parteiElement!: { parteiType: string, name: string, members: number, candidateList:string[] };
   @Input() parteiId!:number;
   @Input() testhtml!:string;
@@ -25,6 +26,7 @@ export class ParteiComponent {
   @Input() testArray!:number[];
   @Output() onCandidateCreated = new EventEmitter<{parteiId: number, candidateName: string}>();
   @ViewChild('myH4Element') myH4Element!:ElementRef;
+  @ContentChild('contentButton') contentButton!:ElementRef;
   showList=false;
   constructor(){
     // console.log("Constructor called");
@@ -57,11 +59,11 @@ this.onCandidateCreated.emit({
   //   console.log("H4 element:");
   //   console.log(this.myH4Element);
   // }
-  // ngOnInit(): void {
+  ngOnInit(): void {
   //   console.log("ngOnInit called");
   //   console.log("H4 element:");
   //   console.log(this.myH4Element);
-  // }
+  }
 
   // ngDoCheck(): void{
   //   console.log("doCheck called");
@@ -69,11 +71,11 @@ this.onCandidateCreated.emit({
   //   console.log("H4 element:");
   //   console.log(this.myH4Element);    
   // }
-  // ngAfterContentInit():void{
+  ngAfterContentInit():void{
   //   console.log("ngAfterContentInit called");
   //   console.log("H4 element:");
   //   console.log(this.myH4Element); 
-  // }
+  }
   // ngAfterContentChecked():void{
   //   console.log("ngAfterContentChecked called");
   //   console.log("Type is:" + this.parteiType);

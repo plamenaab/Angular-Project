@@ -5,7 +5,7 @@ import { Directive, ElementRef, OnInit } from "@angular/core";
 })
 export class FirstDirective implements OnInit{
     constructor(private elementRef:ElementRef){
-        console.log(this.elementRef);
+        // console.log(this.elementRef);
     }
 
     ngOnInit(){

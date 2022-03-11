@@ -18,7 +18,9 @@ import { AddParteiComponent } from './parteien/add-partei/add-partei.component';
 import { ParteiListComponent } from './partei/partei-list/partei-list.component';
 import { CandidateListComponent } from './partei/candidate-list/candidate-list.component';
 import { PartaiAccListComponent } from './parteien/partai-acc-list/partai-acc-list.component';
-
+import { FirstDirective } from './first-directive/app-first-directive';
+import { SecondDirectiveDirective } from './second-directive/second-directive.directive';
+import { SecondDir2Directive } from './second-directive/second-dir2.directive';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,10 @@ import { PartaiAccListComponent } from './parteien/partai-acc-list/partai-acc-li
     AddParteiComponent,
     ParteiListComponent,
     CandidateListComponent,
-    PartaiAccListComponent
+    PartaiAccListComponent,
+    FirstDirective,
+    SecondDirectiveDirective,
+    SecondDir2Directive
   ],
   imports: [
     BrowserModule,
