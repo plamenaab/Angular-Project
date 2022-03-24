@@ -1,4 +1,23 @@
-import { Component, Input, ViewEncapsulation, OnInit, OnChanges, SimpleChanges, ViewChild, ElementRef, Output, EventEmitter, OnDestroy, ContentChild, AfterContentInit } from "@angular/core";
+import { 
+  Component, 
+  EventEmitter, 
+  Input, 
+  OnChanges, 
+  OnInit, 
+  DoCheck,
+  Output, 
+  ViewEncapsulation,
+  ViewChild,
+  SimpleChanges,
+  AfterContentInit,
+  AfterContentChecked,
+  ElementRef,
+  AfterViewInit,
+  AfterViewChecked,
+  OnDestroy,
+  ContentChild
+} from "@angular/core";
+import { ActivatedRoute, Params } from "@angular/router";
 import { LoggingService } from "../services/logging.service";
 
 @Component({
@@ -8,53 +27,54 @@ import { LoggingService } from "../services/logging.service";
   encapsulation: ViewEncapsulation.Emulated,
 })
 
-export class ParteiComponent 
-      implements 
-    OnInit,
+export class ParteiComponent  
+     implements 
+     OnInit, 
     // OnChanges, 
     // DoCheck, 
-    AfterContentInit
+      AfterContentInit
     // AfterContentChecked,
-    // AfterViewInit,
+    // AfterViewInit
     // AfterViewChecked,
     // OnDestroy
-  {
-  @Input('parteiEl') parteiElement!: { parteiType: string, name: string, members: number, candidateList:string[] };
+{
+  @Input('partei') parteiElement!:{parteiType:string, name:string, members:number, candidateList:string[]};
   @Input() parteiId!:number;
   @Input() testhtml!:string;
   @Input() parteiType!:string;
   @Input() testArray!:number[];
-  @Output() onCanidateCreated = new EventEmitter<{parteiId:number, candidateName:string}>();
+  // @Output() onCanidateCreated = new EventEmitter<{parteiId:number, candidateName:string}>();
+
   @ViewChild('myH4Element') myH4Element!:ElementRef;
   @ContentChild('contentButton') contentButton!:ElementRef;
   showList=false;
-  constructor(private loggingService: LoggingService){
+  constructor(
+    private loggingService: LoggingService,
+    private route: ActivatedRoute
+    ){
     // console.log("Constructor called");
-    // setTimeout(
-    //   () =>{
-    //     this.parteiType="NewPartei";
-    //   },5000)
-  }
-  getParteiFullName(){
-    return `${this.parteiElement.parteiType} ${this.parteiElement.name}!`;
-  }
-  canidateCreated(candidateData: {candidateName:string}){
+    // console.log("H4 element:");
+    // console.log(this.myH4Element);
 
-    // console.log("New candidate", candidateData.candidateName, 
-    // " ID:", this.parteiId);
-    //emit to parent 
-    this.loggingService.logParteiDataChange('partei comp add candidate:' + candidateData.candidateName);
-     this.onCanidateCreated.emit({
-     parteiId: this.parteiId,
-     candidateName:candidateData.candidateName,
-     });
-  }
-  changeParteiType(){
+  } 
+  // canidateCreated(candidateData: {candidateName:string}){
+
+  //   // console.log("New candidate", candidateData.candidateName, 
+  //   // " ID:", this.parteiId);
+  //   //emit to parent 
+  //   this.loggingService.logParteiDataChange('partei comp add candidate:' + candidateData.candidateName);
+  //    this.onCanidateCreated.emit({
+  //    parteiId: this.parteiId,
+  //    candidateName:candidateData.candidateName,
+  //    });
+  // }
+  
+  changeParteiData(){
+    // this.parteiElement.members = 10000;
     // this.parteiType = "NewParteiType";
-    // this.parteiElement.members=1000;
     // this.testArray.push(4);
+    // console.log(this.myH4Element);
   }
-
   // ngOnChanges(smplChanges: SimpleChanges):void{
 
   //   console.log("ngOnChanges called");
@@ -63,9 +83,19 @@ export class ParteiComponent
   //   console.log(this.myH4Element);
   // }
   ngOnInit(): void {
-  //   console.log("ngOnInit called");
-  //   console.log("H4 element:");
-  //   console.log(this.myH4Element);
+    if(this.route.snapshot.queryParams['showlist']){
+      this.showList=true;
+    }
+    this.route.queryParams.subscribe(
+      (params:Params) =>{
+        this.showList= (params['showlist']) ? true:false;
+      }
+    );
+    // console.log("ngOnInit called");
+    // console.log("H4 element:");
+    // console.log(this.myH4Element);
+    // console.log("Button element:");
+    // console.log(this.contentButton);        
   }
 
   // ngDoCheck(): void{
@@ -75,9 +105,11 @@ export class ParteiComponent
   //   console.log(this.myH4Element);    
   // }
   ngAfterContentInit():void{
-  //   console.log("ngAfterContentInit called");
-  //   console.log("H4 element:");
-  //   console.log(this.myH4Element); 
+    // console.log("ngAfterContentInit called");
+    // console.log("H4 element:");
+    // console.log(this.myH4Element); 
+    // console.log("Button element:");
+    // console.log(this.contentButton.nativeElement.textContent);        
   }
   // ngAfterContentChecked():void{
   //   console.log("ngAfterContentChecked called");
@@ -86,9 +118,13 @@ export class ParteiComponent
   //   console.log(this.myH4Element);
   // }
   // ngAfterViewInit(): void{
+    // this.showList=false;
+
   //   console.log("ngAfterViewInit called");
-  //   console.log("H4 element:");
-  //   console.log(this.myH4Element);    
+  //   // console.log("H4 element:");
+  //   // console.log(this.myH4Element);    
+  //    console.log("Button element:");
+  //    console.log(this.contentButton.nativeElement.textContent);    
   // }
 
   // ngAfterViewChecked():void{
@@ -103,7 +139,10 @@ export class ParteiComponent
   // removePartei(parteiId:number){
   //   this.parteiDeleted.emit({id:parteiId})
   // }
-  
-
+  getParteiFullName(){
+    return `${this.parteiElement.parteiType} ${this.parteiElement.name}!`;
+  }
+  //Die Sozialpolitische Partei 
 
 }
+

@@ -22,7 +22,19 @@ import { FirstDirective } from './first-directive/app-first-directive';
 import { SecondDirectiveDirective } from './second-directive/second-directive.directive';
 import { SecondDir2Directive } from './second-directive/second-dir2.directive';
 import { StructuralDirective } from './structural.directive';
-import { LoggingService } from 'src/app/services/logging.service';
+import { LoggingService } from './services/logging.service';
+import { CanDeactivateGuardService } from './parteien/add-partei/can-deactivate-guard.service';
+import { ViewParteiComponent } from './view-partei/view-partei.component';
+import { NotAuthComponent } from './not-found/not-auth/not-auth.component';
+import { RouteTesterComponent } from './route-tester/route-tester.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { PoliticComponent } from './politics/politic/politic.component';
+import { PoliticsComponent } from './politics/politics.component';
+import { PeopleComponent } from './politics/politic/people/people.component';
+import { ObservableDemoComponent } from './observable-demo/observable-demo.component';
+import { ParteiDataService } from './services/parteiData.service';
+import { LoginService } from './services/login.service';
+import { AdminGuardService } from './politics/admin-guard.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,7 +52,15 @@ import { LoggingService } from 'src/app/services/logging.service';
     FirstDirective,
     SecondDirectiveDirective,
     SecondDir2Directive,
-    StructuralDirective
+    StructuralDirective,
+    RouteTesterComponent,
+    ViewParteiComponent,
+    NotFoundComponent,
+    PoliticsComponent,
+    PoliticComponent,
+    PeopleComponent,
+    NotAuthComponent,
+    ObservableDemoComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +68,7 @@ import { LoggingService } from 'src/app/services/logging.service';
     FormsModule,
     NgbModule,
   ],
-  providers: [],
+  providers: [LoggingService, ParteiDataService, LoginService, AdminGuardService, CanDeactivateGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

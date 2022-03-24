@@ -3,21 +3,31 @@ class="btn btn-danger"
 (click)="removePartei(parteiId)"
 >X</button> -->
 <div class="row">
-    <div class="col-xs-12 col-md-8">
+    <div class="col-xs-10 col-md-6">
         <ng-content></ng-content>
         <!-- {{testhtml}} -->
         <h4 #myH4Element>
-            <!-- {{ getParteiFullName() }} / Members: {{ parteiElement.members }} -->
-            {{parteiElement.parteiType}} {{ parteiElement.name }} / Members: {{ parteiElement.members }}
+            <a [routerLink]="['/viewpartei', parteiId]">
+                <!-- {{ getParteiFullName() }} / Members: {{ parteiElement.members }} -->
+                {{parteiElement.parteiType}} {{ parteiElement.name }} / Members: {{ parteiElement.members }}
+            </a>
         </h4>
+    </div>
+    <div class="col-xs-2 col-md-2">
+        <a 
+            [routerLink]="['/viewpartei',parteiId]"
+            [queryParams]="{showlist:1}"
+            fragment="someNewAnchor"
+            class="btn btn-primary" 
+        >More</a>
         <button 
             class="btn float-end" 
             [ngClass]="{'btn-primary':showList, 'btn-success':!showList}" 
             (click)="showList=!showList"
         >{{ (showList)? "Hide": "Show"}}</button>
-    </div>
+    </div>        
     <div class="col-xs-12 col-md-4" *ngIf="showList">
-        <app-candidate-list [candidates]="parteiElement.candidateList" [parteiId]="parteiId" (canidateCreated)="canidateCreated($event)"></app-candidate-list>
+        <app-candidate-list [parteiId]="parteiId"></app-candidate-list>
     </div>
     <!-- <button class="btn btn-primary" (click)="changeParteiData()">Clickme</button> -->
 </div>

@@ -1,16 +1,22 @@
-<button 
-    class="btn btn-primary"
-    [disabled]="waitSec"
-    (click)="startDownload()"
->
-Download List
+<button class="btn btn-primary" [disabled]="waitSec" (click)="startDownload()">
+    Download list
 </button>
-<p>Please wait {{waitSec}} seconds</p>
-<p>Download status: <span>{{!waitSec}} {{isDownloading}}</span></p>
-<!-- <h4>Name:</h4><app-errors></app-errors>
-<hr>
-<h4>Name:</h4><app-success></app-success>
-<hr> -->
-
-
-<!-- <p>Download status: <span [innerText]="!waitSec"></span></p> -->
+<p>Please wait {{waitSec}} seconds...</p>
+<p>Download status: <span>{{ !waitSec }} {{ isDownloading}}</span></p>
+<a routerLink="/download">
+    Reset download counter1
+</a>
+<br>
+<!-- not good solution to use pure javascript -->
+<!-- <button class="btn btn-primary" onclick="top.window.location='/';">Go to home</button> -->
+<button 
+    class="btn btn-primary" 
+    (click)="goToLinkButton()"
+>Go to link</button>
+<!-- <a routerLink="download">
+    Reset download counter2
+</a> -->
+<!-- <p>Download status: <span [innerText]="!waitSec"></span>!</p> -->
+<div *ngIf="isTest">
+    Running in test mode
+</div>

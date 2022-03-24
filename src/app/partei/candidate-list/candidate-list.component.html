@@ -1,25 +1,19 @@
 <ol>
-    <li *ngFor="let candidate of candidates">
-        {{ candidate}}
+    <li *ngFor="let candidate of candidates; let i=index;" [ngStyle]="{fontStyle:(i%2)?'italic':''}">
+        <div *ngIf="editCandidateId!==i">
+            <button class="btn btn-success btn-sm" (click)="editCandidateId=i">Edit</button>
+            {{ candidate }}            
+        </div>
+        <div *ngIf="editCandidateId===i">
+            <input type="text" value="{{ candidate }}" #editCandidateName>
+            <button class="btn btn-success btn-sm" (click)="onUpdateCandidate(editCandidateName)">Save</button>
+            <button class="btn btn-danger btn-sm" (click)="editCandidateId=-1">Cancel</button>
+        </div>
     </li>
 </ol>
 
-<div>
-    <input
-    type="text"
-    name="candidateName"
-    class="form-control"
-    #candidateName
-    >      
-    <input
-    type="hidden"
-    name="parteiId"
-    class="form-control"
-    value="{{parteiId}}"
-    >        
-<br>
-    <button
-    class="btn btn-primary"
-    (click)="onAddCandidate(candidateName)"
-    >Add a new Partei</button>
-</div>
+
+
+<input class="form-control" type="text" name="candidateName" #candidateName>
+<!-- <input type="hidden" name="parteiId" value="{{parteiId}}"> -->
+<button class="btn btn-primary" (click)="onAddCandidate(candidateName)">Add</button>

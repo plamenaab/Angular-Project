@@ -1,56 +1,46 @@
-<!-- <input 
-    type = "text" 
-    name="newPartei" 
-    class="form-control"
-    (keypress)="showInputName($event)"
-    value={{newParteiName}}
->
-You wrote <b>{{newParteiName}}</b> as new partei name! -->
-
-
-<!-- another way to apply listener is through ngModel, Angular makes everything instead of us -->
-<!-- <input 
-    type = "text" 
-    name="newPartei" 
-    class="form-control"
-    [(ngModel)]="newParteiNameTWB"
-> -->
-<!-- You wrote <b>{{newParteiNameTWB}}</b> as new partei name!
-<br>
-<br>
-<h4>Name:</h4><app-partei></app-partei>
-<hr>
-<h4>Name:</h4><app-partei></app-partei>
-<hr> -->
+<!-- <app-add-parei (parteiCreated)="onAddPartai($event)"></app-add-parei> -->
 <app-add-partei></app-add-partei>
-<h4>This is a test H4 element</h4>
+
+
+
+<h4>This is test H4 element</h4>
 <div class="accordion" id="accordionExample">
     <div class="accordion-item" *ngFor="let partei of parteiList; let i = index">
         <app-partai-acc-list [partei]="partei" [parteiId]="i"></app-partai-acc-list>
     </div>
 </div>
 <hr>
+
+
+
+
+
+
+
+
 <ul [style]="{'list-style-type':'none', padding:0}">
-<li 
-*ngFor="let partei of parteiList; let i = index" 
-[ngStyle]="{backgroundColor:(i%2) ? '#eee': 'white'}">
-    <!-- <button 
-        class="btn btn-danger"
-        (click)="removePartei(i)"
-    >X</button> -->
-    <app-partei 
-    [parteiEl]="partei"
-    [parteiId]="i"
-    [parteiType]="partei.parteiType"
-    (onCanidateCreated)="onAddCandidate($event)"
-    >
-<button
-         class="btn btn-danger"
-         (click)="removePartei(i)"
-         #contentButton
-        >X</button>
-</app-partei>
-</li>
+    <li *ngFor="let partei of parteiList; let i = index" [ngStyle]="{backgroundColor:(i%2) ? '#eee': 'white'}">
+        <!-- <button 
+            class="btn btn-danger"
+            (click)="removePartei(i)"
+        >X</button> -->
+        <!-- <app-partei [partei]="partei" (parteiDeleted)="onRemovePartei($event)" [parteiId]="i" [testhtml]="testhtml"> -->
+        
+            <app-partei 
+                [partei]="partei" 
+                [parteiId]="i" 
+                [parteiType]="partei.parteiType" 
+            >
+                <!-- <b>this is test html</b> -->
+                <button 
+                    class="btn btn-danger" 
+                    (click)="removePartei(i)"
+                    #contentButton
+                >X</button>
+            </app-partei>
+
+    </li>
 </ul>
 <!-- make delete partei button -->
-<!-- Test case: see members {{parteiList[0].members}} /see type {{parteiList[0].parteiType}} / TestArray {{testArray.toString()}} -->
+<!-- Test case : see members {{parteiList[0].members}} / see type {{parteiList[0].parteiType}} /  -->
+<!-- TestArray:{{testArray.toString()}} -->
