@@ -1,5 +1,6 @@
+<br>Filter: <input type="text" [(ngModel)]="filterString">
 <ul>
-    <li *ngFor="let people of peopleList">
+    <li *ngFor="let people of peopleList | peopleFilter: filterString" >
         {{people}}
     </li>
 </ul>

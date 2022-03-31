@@ -10,6 +10,7 @@ import { ParteiDataService } from '../../../services/parteiData.service';
 export class PeopleComponent implements OnInit {
   id:number = -1;
   peopleList:string[] = [];
+  filterString = "";
   constructor(
     private parteiDataService: ParteiDataService,
     private route: ActivatedRoute

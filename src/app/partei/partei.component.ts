@@ -48,6 +48,7 @@ export class ParteiComponent
   @ViewChild('myH4Element') myH4Element!:ElementRef;
   @ContentChild('contentButton') contentButton!:ElementRef;
   showList=false;
+  Mitgliedsbeitrag = 5.6;
   constructor(
     private loggingService: LoggingService,
     private route: ActivatedRoute

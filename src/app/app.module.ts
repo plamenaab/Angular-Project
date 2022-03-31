@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -36,6 +36,12 @@ import { ParteiDataService } from './services/parteiData.service';
 import { LoginService } from './services/login.service';
 import { AdminGuardService } from './politics/admin-guard.service';
 import { UserFormComponent } from './user-form/user-form.component';
+import { HttpClientModule } from '@angular/common/http';
+import { CnjokesComponent } from './cnjokes/cnjokes.component';
+import { ParteienFilterPipe } from './parteien/parteien-filter.pipe';
+import { PeopleFilterPipe } from './politics/politic/people/people-filter.pipe';
+import { politicsShortenPipe } from './politics/politicsShorten.pipe';
+import { UserRformComponent } from './user-rform/user-rform.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -62,13 +68,20 @@ import { UserFormComponent } from './user-form/user-form.component';
     PeopleComponent,
     NotAuthComponent,
     ObservableDemoComponent,
-    UserFormComponent
+    UserFormComponent,
+    UserRformComponent,
+    politicsShortenPipe,
+    PeopleFilterPipe,
+    ParteienFilterPipe,
+    CnjokesComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     NgbModule,
+    ReactiveFormsModule,
+    HttpClientModule,
   ],
   providers: [LoggingService, ParteiDataService, LoginService, AdminGuardService, CanDeactivateGuardService],
   bootstrap: [AppComponent]

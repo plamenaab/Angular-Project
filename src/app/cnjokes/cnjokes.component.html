@@ -1,0 +1,17 @@
+<button class="btn btn-primary" (click)="getNewJoke()">Get new joke</button>
+<div>
+    id: {{theJoke.id}}<br>
+    text: {{theJoke.joke}}
+</div>
+<hr>
+<input type="number" name="jokesCount" [(ngModel)]='jokesCount'>
+<button class="btn btn-primary" (click)="getSomeJokes(jokesCount)">Get jokes</button>
+<p *ngIf="jokesCount==0">No jokes retrived</p>
+<ul *ngIf="jokesCount>0">
+    <li *ngFor="let joke of theJokes">
+        <div>
+            id: {{joke.id}}<br>
+            text: {{joke.joke}}
+        </div>
+    </li>
+</ul>

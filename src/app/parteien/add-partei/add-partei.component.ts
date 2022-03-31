@@ -17,7 +17,7 @@ export class AddParteiComponent implements OnInit, CanComponentDeactivate {
   newParteiMembers = 0; // Re-work newParteiMembers using Local Ref or ViewChild methods
   //@Output() parteiCreated = new EventEmitter<{parteiType:string, name:string, members:number, candidateList:string[]}>();
   @ViewChild('newParteiTypeInput') newParteiTypeInput!: ElementRef;
-
+  currentDate = new Date();
   // adding unload route guard 
   changesSaved: boolean = false;
   constructor(

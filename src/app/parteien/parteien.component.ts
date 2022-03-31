@@ -15,6 +15,7 @@ import { ParteiDataService } from '../services/parteiData.service';
 
 })
 export class ParteienComponent implements OnInit {
+  parteiFilter = "";
   parteiList:{parteiType:string, name:string, members:number, candidateList:string[]}[]=[];
   // newParteiName = "add some name here";
   // newParteiNameTWB = "add some name TWB";

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CnjokesComponent } from './cnjokes/cnjokes.component';
 import { DownloaderComponent } from './downloader/downloader.component';
 import { NotAuthComponent } from './not-found/not-auth/not-auth.component';
 import { NotFoundComponent } from './not-found/not-found.component';
@@ -14,11 +15,14 @@ import { PoliticComponent } from './politics/politic/politic.component';
 import { PoliticsComponent } from './politics/politics.component';
 import { RouteTesterComponent } from './route-tester/route-tester.component';
 import { UserFormComponent } from './user-form/user-form.component';
+import { UserRformComponent } from './user-rform/user-rform.component';
 import { ViewParteiComponent } from './view-partei/view-partei.component';
 
 const routes: Routes = [
   {path:'observers', component: ObservableDemoComponent},
   {path:'userform', component: UserFormComponent},
+  {path:'cnjokes', component: CnjokesComponent},
+  {path:'userrform', component: UserRformComponent},
 
   {path: 'politics', 
     //canActivate:[AdminGuardService], 

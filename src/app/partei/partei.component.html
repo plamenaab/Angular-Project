@@ -9,7 +9,7 @@ class="btn btn-danger"
         <h4 #myH4Element>
             <a [routerLink]="['/viewpartei', parteiId]">
                 <!-- {{ getParteiFullName() }} / Members: {{ parteiElement.members }} -->
-                {{parteiElement.parteiType}} {{ parteiElement.name }} / Members: {{ parteiElement.members }}
+                {{parteiElement.parteiType}} {{ parteiElement.name | uppercase}} / Members: {{ parteiElement.members | number : '1.1-6'}} // {{ Mitgliedsbeitrag | currency:'€':'symbol':'2.0-0'}}
             </a>
         </h4>
     </div>

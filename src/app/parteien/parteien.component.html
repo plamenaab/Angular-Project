@@ -2,10 +2,11 @@
 <app-add-partei></app-add-partei>
 
 
+<br>Filter: <input type="text" [(ngModel)]="parteiFilter">
 
 <h4>This is test H4 element</h4>
 <div class="accordion" id="accordionExample">
-    <div class="accordion-item" *ngFor="let partei of parteiList; let i = index">
+    <div class="accordion-item" *ngFor="let partei of parteiList | parteienFilter:parteiFilter:'name'; let i = index">
         <app-partai-acc-list [partei]="partei" [parteiId]="i"></app-partai-acc-list>
     </div>
 </div>

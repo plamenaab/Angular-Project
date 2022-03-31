@@ -4,7 +4,7 @@
         <ul>
             <li *ngFor="let partei of parteiList; let i = index">
                 <a [routerLink]="[i]">
-                    {{partei.name}}
+                    {{partei.name | politicsShorten}}
                 </a>
             </li>
         </ul>
