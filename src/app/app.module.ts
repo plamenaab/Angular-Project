@@ -35,6 +35,7 @@ import { ObservableDemoComponent } from './observable-demo/observable-demo.compo
 import { ParteiDataService } from './services/parteiData.service';
 import { LoginService } from './services/login.service';
 import { AdminGuardService } from './politics/admin-guard.service';
+import { UserFormComponent } from './user-form/user-form.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -60,7 +61,8 @@ import { AdminGuardService } from './politics/admin-guard.service';
     PoliticComponent,
     PeopleComponent,
     NotAuthComponent,
-    ObservableDemoComponent
+    ObservableDemoComponent,
+    UserFormComponent
   ],
   imports: [
     BrowserModule,

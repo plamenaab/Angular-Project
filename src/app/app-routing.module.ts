@@ -13,10 +13,12 @@ import { PeopleComponent } from './politics/politic/people/people.component';
 import { PoliticComponent } from './politics/politic/politic.component';
 import { PoliticsComponent } from './politics/politics.component';
 import { RouteTesterComponent } from './route-tester/route-tester.component';
+import { UserFormComponent } from './user-form/user-form.component';
 import { ViewParteiComponent } from './view-partei/view-partei.component';
 
 const routes: Routes = [
   {path:'observers', component: ObservableDemoComponent},
+  {path:'userform', component: UserFormComponent},
 
   {path: 'politics', 
     //canActivate:[AdminGuardService], 

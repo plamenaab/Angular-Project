@@ -32,18 +32,18 @@ export class ObservableDemoComponent implements OnInit, OnDestroy {
       },1000);
     });
     // old school syntax
-    // this.myTestSubscription = customIntervalObservable.subscribe(
-    // data=>{
-    //   console.log(data);
-    // }, 
-    // error =>{
-    //   console.log(error);
-    //   alert(error);
-    // },
-    // ()=>{
-    //   console.log('this.waitSecer completed');
-    // }
-    // );
+    this.myTestSubscription = customIntervalObservable.subscribe(
+    data=>{
+      console.log(data);
+    }, 
+    error =>{
+      console.log(error);
+      alert(error);
+    },
+    ()=>{
+      console.log('this.waitSecer completed');
+    }
+    );
 
     this.myTestSubscription = customIntervalObservable.
     pipe(
