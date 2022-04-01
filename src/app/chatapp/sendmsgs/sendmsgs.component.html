@@ -1,0 +1,5 @@
+<form method="post" (ngSubmit)="onSendMsg()" #fEl="ngForm">
+    <input type="text" id="sender" name="sender" ngModel #sender="ngModel">
+    <input type="text" id="chatmsg" name="chatmsg" ngModel #chatmsg="ngModel">
+    <input type="submit" value="Send">
+</form>

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ChatappComponent } from './chatapp/chatapp.component';
 import { CnjokesComponent } from './cnjokes/cnjokes.component';
 import { DownloaderComponent } from './downloader/downloader.component';
 import { NotAuthComponent } from './not-found/not-auth/not-auth.component';
@@ -23,6 +24,7 @@ const routes: Routes = [
   {path:'userform', component: UserFormComponent},
   {path:'cnjokes', component: CnjokesComponent},
   {path:'userrform', component: UserRformComponent},
+  {path:'chat', component: ChatappComponent},
 
   {path: 'politics', 
     //canActivate:[AdminGuardService], 

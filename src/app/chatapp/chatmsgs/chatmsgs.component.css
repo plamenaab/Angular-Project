@@ -1,0 +1,7 @@
+div{
+    border:1px solid black;
+    width:500px;
+    /* position:absolute;  */
+    height:70vh; 
+    overflow:auto;
+}

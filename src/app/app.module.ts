@@ -1,6 +1,6 @@
 import { NgModule, SimpleChange } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -42,6 +42,9 @@ import { ParteienFilterPipe } from './parteien/parteien-filter.pipe';
 import { PeopleFilterPipe } from './politics/politic/people/people-filter.pipe';
 import { politicsShortenPipe } from './politics/politicsShorten.pipe';
 import { UserRformComponent } from './user-rform/user-rform.component';
+import { ChatappComponent } from './chatapp/chatapp.component';
+import { ChatmsgsComponent } from './chatapp/chatmsgs/chatmsgs.component';
+import { SendmsgsComponent } from './chatapp/sendmsgs/sendmsgs.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -73,10 +76,14 @@ import { UserRformComponent } from './user-rform/user-rform.component';
     politicsShortenPipe,
     PeopleFilterPipe,
     ParteienFilterPipe,
-    CnjokesComponent
+    CnjokesComponent,
+    ChatappComponent,
+    ChatmsgsComponent,
+    SendmsgsComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,
     NgbModule,

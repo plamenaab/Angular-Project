@@ -1,0 +1,7 @@
+<div>
+    <p *ngIf="chatmsgs.length===0">No messages</p>
+    <p *ngFor="let msg of chatmsgs;">
+        <b>{{ msg.sender}}: </b>
+        <span>{{ msg.msg }}</span>
+    </p>
+</div>
